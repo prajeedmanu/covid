@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<body style="background-image:url({% static 'img/c3.jpg' %});background-size:100%;">-->
+<header>
+
+    <center>
+        <a><img src="{% static 'img/c5.png' %}" height="150px" width="1370px"></a></center>
+</header>
+
+<center><h1 style="background-color:red">REGISTER</h1></center>
+<form action="register" method="post">
+    {% csrf_token %}
+    <center>
+    <table style="text-align:center">
+<!--        <label for = "district" >district</label>-->
+<!--        <select id="district">-->
+<!--          <option value="palakkad">pa</option>-->
+<!--           <option value="thrissur">th</option>-->
+<!--        </select>-->
+        <tr>
+<!--            <td>Username</td>-->
+            <td><input type="fiat" name="username" placeholder="enter username"><br></td>
+        </tr>
+<!--        <tr>-->
+<!--            <td>firstname</td>-->
+<!--            <td><input type="text" name="first_name" placeholder="enter firstname"><br></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>lastname</td>-->
+<!--    <td><input type="text" name="last_name" placeholder="enter lastname"><br></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Email</td>-->
+     <td><input type="email" name="email" placeholder="enter email"><br></td>
+        </tr>
+        <tr>
+<!--            <td>Password</td>-->
+            <td><input type="password" name="password" placeholder="enter password"><br></td>
+        </tr>
+        <tr>
+<!--            <td>Confirm Password</td>-->
+            <td><input type="password" name="password1" placeholder="enter confirm password"><br></td>
+
+        <tr>
+
+    <td colspan="2"><input  style="background-color:yellow;padding:12px;" type="submit" ></td>
+        </tr>
+        </table>
+        <table>
+
+        <tr>already have an account<a href="login">  login </a>here</tr>
+    </table>
+    </center>
+
+
+
+</form>
+
+{% for i in messages %}
+{{i}}
+{% endfor %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center><div class='footer navbar-fixed-bottom my-footer'>
+    <p class="text-center">&copy;2022 Co-WIN All Rights Reserved</p>
+</div></center>
+</body>
+</html>

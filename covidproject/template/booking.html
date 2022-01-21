@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image:url({% static 'images/manu.jpg' %});background-size:100%;">
+{% block content %}
+<h1 style="background-color:red">Register or sign in for vaccination</h1>
+<form action="submit12" method="post">
+    {% csrf_token %}
+    <table style="text-align:center">
+
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="username" placeholder="enter username"><br></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="Gender"  checked>Male
+            <input type="radio" name="Gender"  checked>Female</td>
+        </tr>
+        <tr>
+            <td>Year_of_Birth</td>
+    <td><input type="date" name="Year Of Birth" placeholder=""><br></td>
+        </tr>
+         <tr>
+            <td>Age</td>
+            <td><input type="number" name="Age" placeholder="AGE"><br></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="Address" placeholder="Enter Address"><br></td>
+        </tr>
+
+
+        <tr>
+            <td>Mobile</td>
+            <td><input type="number" name="Mobile Number" placeholder=""><br></td>
+        </tr>
+        <tr>
+            <label for = "District" >District</label>
+        <select id="District">
+            <option value="Select District">Select District</option>
+          <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+           <option value="Kollam">Kollam</option>
+            <option value="Pathanamthitta">Pathanamthitta</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Kottayam">Kottayam</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Ernakulam ">Ernakulam </option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Wayanad">wayanad</option>
+            <option value="Kannur">Kannur</option>
+            <option value="Kasargod">Kasargod</option>
+
+        </select>
+
+        </tr>
+
+        <tr>
+
+    <td colspan="2"><input type="submit" >
+    <a  href="exit">exit</a></td>
+        </tr>
+
+    </table>
+
+
+
+</form>
+
+
+{% endblock %}
+</body>
+</html>

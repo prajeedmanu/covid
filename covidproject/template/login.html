@@ -1,0 +1,59 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    <link rel="stylesheet" href="{% static 'style.css' %}">-->
+</head>
+<body style="text-align:center;background-color:white;">
+<header>
+
+    <center>
+        <a><img src="{% static 'img/c5.png' %}" height="170px" width="1370px"></a></center>
+</header>
+
+<!--<div class="container" style="text-align:center;" >-->
+<!--        <div class="row">-->
+
+<h1 style="background-color:red">LOGIN</h1>
+<form action="login" method="post" style="3px solid black;">
+    {% csrf_token %}
+
+
+
+
+
+
+        <label>username</label>
+        <input style="width:20%;padding:10px;"  type="text" name="username" placeholder="enter username"><br>
+
+        <label>password</label>
+     <input style="width:20%;padding:10px;" type="password" name="password" placeholder="enter password"><br>
+
+    <input style="background-color:yellow;padding:12px;" type="submit">
+        <a class="nav-link" href="register">Register</a></td>
+
+    </div>
+
+
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class='footer navbar-fixed-bottom my-footer'>
+    <p class="text-center">&copy;2022 Co-WIN All Rights Reserved</p>
+</div>
+</body>
+</html>

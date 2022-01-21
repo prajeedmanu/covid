@@ -1,0 +1,136 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script>
+var stateObject = {
+"Kerala": { "Thiruvanathapuram": ["Neyyathinkara", "Kattakada","Nedumangad","Trivandrum"],
+"Kollam": ["Kunnathur", "Kottarakara","Pathanapuram"],
+"Pathanamthitta": ["Koni", "Adoor","Ranni"],
+"Alappuzha": ["Cherthala", "Ambalappuzha"],
+"Kottayam": ["Meenachil", "Vaikom","Changanassery"],
+"Idukki": ["Thodupuzha", "Devikulam"],
+"Ernakulam": ["Kochi", "Paravoor","Muvattupuzha"],
+"Thrissur": ["Chavakkad", "Kodugallur","Pazhayannur"],
+"Palakkad": ["Mannarkkad", "Ottapalam","Cherplassery"],
+"Malappuram": ["Kondotty", "Ponnani"],
+"Kozhikode": ["Koyilandi", "Vadakara"],
+"Wayanad": ["Vythiri", "Manathavady"],
+"Kannur": ["Thalassery", "Iritty","Kannur"],
+"Kasaragod": ["Hosdurg", "Vellarikund"],
+},
+<!--"Australia": {-->
+<!--"South Australia": ["Dunstan", "Mitchell"],-->
+<!--"Victoria": ["Altona", "Euroa"]-->
+<!--}, "Canada": {-->
+<!--"Alberta": ["Acadia", "Bighorn"],-->
+<!--"Columbia": ["Washington", ""]-->
+<!--},-->
+}
+window.onload = function () {
+var countySel = document.getElementById("countySel"),
+stateSel = document.getElementById("stateSel"),
+districtSel = document.getElementById("districtSel");
+for (var country in stateObject) {
+countySel.options[countySel.options.length] = new Option(country, country);
+}
+countySel.onchange = function () {
+stateSel.length = 1; // remove all options bar first
+districtSel.length = 1; // remove all options bar first
+if (this.selectedIndex < 1) return; // done
+for (var state in stateObject[this.value]) {
+stateSel.options[stateSel.options.length] = new Option(state, state);
+}
+}
+countySel.onchange(); // reset in case page is reloaded
+stateSel.onchange = function () {
+districtSel.length = 1; // remove all options bar first
+if (this.selectedIndex < 1) return; // done
+var district = stateObject[countySel.value][this.value];
+for (var i = 0; i < district.length; i++) {
+districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+}
+}
+}
+</script>
+</head>
+<body>
+<header>
+
+    <center>
+        <a><img src="{% static 'img/c5.png' %}" height="170px" width="1370px"></a></center>
+</header>
+<!--{% block content %}-->
+<center><h1 style="background-color:red;">Register or sign in for vaccination</h1></center>
+<form action="submit12" method="post">
+    {% csrf_token %}
+   <center>    <table>
+       <tr>
+            <td>Name</td>
+            <td><input type="text" name="username" placeholder="enter username"><br></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="Gender" >Male
+            <input type="radio" name="Gender"  >Female</td>
+        </tr>
+            <tr>
+            <td>Vaccination Dose</td>
+            <td><input type="checkbox" name="1st Dose"  >1st Dose
+            <input type="checkbox" name="2nd Dose"  >2nd Dose</td>
+        </tr>
+        <tr>
+            <td>Year_of_Birth</td>
+    <td><input type="date" name="Year Of Birth" placeholder=""><br></td>
+        </tr>
+         <tr>
+            <td>Age</td>
+            <td><input type="number" name="Age" placeholder="AGE"><br></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="Address" placeholder="Enter Address"><br></td>
+        </tr>
+       <tr>
+            <td>Mobile</td>
+            <td><input type="number" name="Mobile Number" placeholder=""><br></td>
+        </tr>
+           <tr>
+               <td>Select State:</td>
+               <td><select name="state" id="countySel" size="1">
+<option value="" selected="selected">Select State</option>
+               </select></td>
+           </tr>
+           <tr>
+<td>Select District:</td>
+         <td>  <select name="countrya" id="stateSel" size="1">
+<option value="" selected="selected">Please select District first</option>
+</select></td></tr>
+           <tr>
+<td>Select Center:</td>
+              <td> <select name="district" id="districtSel" size="1">
+<option value="" selected="selected">Please select Center first</option>
+</select></td></tr>
+   <tr>
+
+    <td><input style="background-color:yellow;padding:12px;" type="submit">
+        <a  href="exit">Logout</a></td>
+        </tr>
+<!--               </td>-->
+<!--          </tr>-->
+<!--       </table>-->
+   </table>
+       </center>
+</form>
+
+<br>
+<br>
+<center><div class='footer navbar-fixed-bottom my-footer'>
+    <p class="text-center">&copy;2022 Co-WIN All Rights Reserved</p>
+</div></center>
+<!--{% endblock %}-->
+</body>
+</html>

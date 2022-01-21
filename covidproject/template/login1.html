@@ -1,0 +1,35 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page with Background Image Example</title>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="bg"></div>
+
+<form action="login" method="post" style="3px solid black;">
+  {% csrf_token %}
+  <div class="form-field">
+    <input type="text" placeholder="username" required/>
+  </div>
+  
+  <div class="form-field">
+    <input type="password" placeholder="password" required/>  </div>
+      <tr>
+
+    <td><input style="background-color:yellow;padding:12px;" type="submit">
+        <a  href="register">Register</a></td>
+        </tr>
+<!--  <div class="form-field">-->
+<!--    <button class="btn" type="submit">Login</button>-->
+<!--    <a  href="register">Register</a>-->
+<!--  </div>-->
+</form>
+
+</body>
+</html>
